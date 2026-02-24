@@ -1,15 +1,11 @@
 const path = require("node:path");
 const { Router } = require("express");
+const { getUsernames, createUsernameGet, createUsernamePost } = require("../controllers/controller");
 
 const newRouter = Router();
 
-newRouter.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../form.html"));
-});
+newRouter.get("/", createUsernameGet);
 
-newRouter.post("/", (req, res) => {
-  console.log("username to be saved: ", req.body.username);
-  res.end();
-});
+newRouter.post("/", createUsernamePost);
 
-module.exports = newRouter
+module.exports = newRouter;

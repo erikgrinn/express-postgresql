@@ -1,10 +1,8 @@
 const { Router } = require("express");
+const { getUsernames } = require("../controllers/controller");
 
 const indexRouter = Router();
 
-indexRouter.get("/", (req, res) => {
-  console.log("usernames will be logged here - wip");
-  res.end();
-});
+indexRouter.get("/", getUsernames);
 
 module.exports = indexRouter;
